@@ -6,7 +6,7 @@
 {\*\expandedcolortbl;;\cssrgb\c53725\c58824\c65882;\cssrgb\c100000\c100000\c100000\c7843;\cssrgb\c88627\c53725\c39216;
 \cssrgb\c68235\c68235\c68235;\cssrgb\c53725\c74118\c100000;\cssrgb\c39608\c69020\c25882;\cssrgb\c80392\c65882\c41176;\cssrgb\c20000\c52941\c80000;
 \cssrgb\c54510\c59608\c67059;\cssrgb\c60784\c43922\c24706;\cssrgb\c24314\c52941\c89020;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww28600\viewh18000\viewkind0
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
 \deftab720
 \pard\pardeftab720\partightenfactor0
 
@@ -20,7 +20,7 @@
 \cf6 <title>\cf5 AI Companion\cf6 </title>\cf5 \
 \cf6 <style>\cf5 \
   \cf4 body\cf5  \{ \cf8 font-family\cf5 : Arial, sans-serif; \cf8 margin\cf5 : \cf9 20px\cf5 ; \cf8 background-color\cf5 : \cf9 #f0f0f0\cf5 ; \}\
-  \cf10 #chat\cf5  \{ \cf8 max-width\cf5 : \cf9 600px\cf5 ; \cf8 margin\cf5 : auto; \cf8 background\cf5 : \cf9 #fff\cf5 ; \cf8 padding\cf5 : \cf9 20px\cf5 ; \cf8 border-radius\cf5 : \cf9 8px\cf5 ; \}\
+  \cf10 #chat\cf5  \{ \cf8 max-width\cf5 : \cf9 600px\cf5 ; \cf8 margin\cf5 : auto; \cf8 background\cf5 : \cf9 #fff\cf5 ; \cf8 padding\cf5 : \cf9 20px\cf5 ; \cf8 border-radius\cf5 : \cf9 8px\cf5 ; \cf8 height\cf5 : \cf9 400px\cf5 ; \cf8 overflow-y\cf5 : auto; \}\
   \cf11 .message\cf5  \{ \cf8 margin-bottom\cf5 : \cf9 15px\cf5 ; \}\
   \cf11 .user\cf5  \{ \cf8 font-weight\cf5 : bold; \}\
   \cf11 .bot\cf5  \{ \cf8 color\cf5 : blue; \}\
@@ -39,8 +39,8 @@
 \
 \cf6 <script>\cf5 \
 \pard\pardeftab720\partightenfactor0
-\cf4 const\cf5  apiKey = \cf7 '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'\cf5 ; 
-\f1\i // Your API key
+\cf4 const\cf5  apiKey = \cf7 'YOUR_API_KEY'\cf5 ; 
+\f1\i // <-- Replace with your actual API key when deploying securely
 \f0\i0 \
 \cf4 const\cf5  chatDiv = \cf12 document\cf5 .\cf6 getElementById\cf5 (\cf7 'chat'\cf5 );\
 \cf4 const\cf5  input = \cf12 document\cf5 .\cf6 getElementById\cf5 (\cf7 'userInput'\cf5 );\
@@ -78,7 +78,7 @@
     \})\
   \});\
   \cf4 const\cf5  data = \cf4 await\cf5  response.\cf6 json\cf5 ();\
-  \cf4 const\cf5  reply = data.choices[\cf9 0\cf5 ].message.content;\
+  \cf4 const\cf5  reply = data.choices && data.choices[\cf9 0\cf5 ] && data.choices[\cf9 0\cf5 ].message ? data.choices[\cf9 0\cf5 ].message.content : \cf7 'Error: No response from API.'\cf5 ;\
   \cf6 appendMessage\cf5 (reply, \cf7 'bot'\cf5 );\
 \}\
 \
